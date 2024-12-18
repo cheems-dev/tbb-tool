@@ -157,8 +157,8 @@ El resultado debe tener un código limpio y modular usando `tbb::parallel_pipeli
     "patron_paralelismo_tareas":"""Refactoriza el siguiente código que utiliza pthreads para realizar multiplicación de matrices y reemplázalo por un enfoque usando Intel TBB con el patrón de diseño 'Paralelismo de tarea'.
       El código debe estar estructurado para utilizar tbb::parallel_for de forma eficiente, distribuyendo las iteraciones del bucle en paralelo, asegurando que las operaciones de multiplicación de matrices se realicen de manera 
       concurrente y optimizada. Mantén la funcionalidad original del código, procesando matrices de tamaño definido en tiempo de ejecución, pero refactoriza todo el manejo de la concurrencia y el procesamiento de las filas de la 
-      matriz utilizando Intel TBB.""",
-    "paso5":"""Compara el código refactorizado con el original en términos de complejidad ciclomática, líneas de código y rendimiento en múltiples núcleos. Genera métricas que demuestren las mejoras en mantenibilidad, adaptabilidad y eficiencia."""
+      matriz utilizando Intel TBB."""
+   
 }
 
 @app.route('/')
@@ -201,6 +201,7 @@ def index():
             color: #333;
         }
         textarea {
+            width: 100%;
             padding: 10px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -244,7 +245,6 @@ def index():
                 <button type="submit" name="step" value="paso2">Generar Paso 2</button>
                 <button type="submit" name="step" value="patron_pipeline">patron pipeline</button>
                 <button type="submit" name="step" value="patron_paralelismo_tareas">paralelismo de tareas </button>
-                <button type="submit" name="step" value="paso5">Generar Paso 5</button>
             </div>
         </form>
     </div>
@@ -286,5 +286,5 @@ def generate():
     return send_file(file_path, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5500)
+    app.run(debug=True)
 
